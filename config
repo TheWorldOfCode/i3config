@@ -34,18 +34,10 @@ set $right l
 # use Mouse+Mod4 to drag floating windows to their wanted position
 floating_modifier Mod4
 
-# start a terminal
-bindsym Mod4+Return exec i3-sensible-terminal
 
-# kill focused window
-bindsym Mod4+Shift+q kill
-
-# start dmenu (a program launcher)
-bindsym Mod4+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym Mod4+d exec --no-startup-id i3-dmenu-desktop
+#########################################################################
+# Entering Basic Movement  						#
+#########################################################################
 
 # change focus
 bindsym Mod4+$left focus left
@@ -54,10 +46,10 @@ bindsym Mod4+$up focus up
 bindsym Mod4+$right focus right
 
 # alternatively, you can use the cursor keys:
-bindsym Mod4+Left focus left
-bindsym Mod4+Down focus down
-bindsym Mod4+Up focus up
-bindsym Mod4+Right focus right
+#bindsym Mod4+Left focus left
+#bindsym Mod4+Down focus down
+#bindsym Mod4+Up focus up
+#bindsym Mod4+Right focus right
 
 # move focused window
 bindsym Mod4+Shift+$left move left
@@ -66,27 +58,10 @@ bindsym Mod4+Shift+$up move up
 bindsym Mod4+Shift+$right move right
 
 # alternatively, you can use the cursor keys:
-bindsym Mod4+Shift+Left move left
-bindsym Mod4+Shift+Down move down
-bindsym Mod4+Shift+Up move up
-bindsym Mod4+Shift+Right move right
-
-# split in horizontal orientation
-bindsym Mod4+b split h
-
-# split in vertical orientation
-bindsym Mod4+v split v
-
-# enter fullscreen mode for the focused container
-bindsym Mod4+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym Mod4+s layout stacking
-bindsym Mod4+w layout tabbed
-bindsym Mod4+e layout toggle split
-
-# toggle tiling / floating
-bindsym Mod4+Shift+space floating toggle
+#bindsym Mod4+Shift+Left move left
+#bindsym Mod4+Shift+Down move down
+#bindsym Mod4+Shift+Up move up
+#bindsym Mod4+Shift+Right move right
 
 # change focus between tiling / floating windows
 bindsym Mod4+space focus mode_toggle
@@ -95,7 +70,7 @@ bindsym Mod4+space focus mode_toggle
 bindsym Mod4+a focus parent
 
 # focus the child container
-#bindsym Mod4+d focus child
+bindsym Mod4+Shift+a focus child
 
 # move the currently focused window to the scratchpad
 bindsym Mod4+Shift+minus move scratchpad
@@ -128,12 +103,8 @@ bindsym Mod4+Shift+8 move container to workspace 8
 bindsym Mod4+Shift+9 move container to workspace 9
 bindsym Mod4+Shift+0 move container to workspace 10
 
-# reload the configuration file
-bindsym Mod4+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym Mod4+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# enter fullscreen mode for the focused container
+bindsym Mod4+f fullscreen toggle
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -161,33 +132,109 @@ mode "resize" {
 
 bindsym Mod4+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-	position top
-        status_command i3status
-}
+#########################################################################
+# Exit Basic Movement							#
+# Entering Layout          						#
+#########################################################################
+
+
+# split in horizontal orientation
+bindsym Mod4+b split h
+
+# split in vertical orientation
+bindsym Mod4+v split v
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym Mod4+s layout stacking
+bindsym Mod4+w layout tabbed
+bindsym Mod4+e layout toggle split
+
+# toggle tiling / floating
+bindsym Mod4+Shift+space floating toggle
+
+#########################################################################
+# Exit Layout 								#
+# Entering System          						#
+#########################################################################
+# Show cheatsheet
+bindsym Mod4+F1 exec zathura ~/.i3/i3cheatsheet.pdf
+
+# reload the configuration file
+bindsym Mod4+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym Mod4+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# kill focused window
+bindsym Mod4+Shift+q kill
+
 
 # Audio control 
 bindsym XF86AudioRaiseVolume exec amixer -D pulse set Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec amixer -D pulse set Master 5%- unmute
 bindsym XF86AudioMute exec amixer -D pulse set Master toggle
-# bindsym XF86AudioPlay exec playerctl play-pause
-# bindsym XF86AudioNext exec playerctl next
-# bindsym XF86AudioPrev exec playerctl previous
-
-# my programs
-bindsym Mod4+Shift+w exec qutebrowser
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 # Lock computer
 bindsym Mod4+Ctrl+l exec i3lock-fancy -p
-#######################################################################
-# automatically start i3-config-wizard to offer the user to create a
-# keysym-based config which used their favorite modifier (alt or windows)
-#
-# i3-config-wizard will not launch if there already is a config file
-# in ~/.i3/config.
-#
-# Please remove the following exec line:
-#######################################################################
-exec i3-config-wizard
+
+#########################################################################
+# Exit System 								#
+# Entering Programs        						#
+#########################################################################
+
+# Start a terminal
+bindsym Mod4+Return exec i3-sensible-terminal
+
+# Start a browser
+bindsym Mod4+Shift+w exec qutebrowser
+
+# Start file browser 
+bindsym Mod4+x exec i3-sensible-terminal -e vifm
+
+# Start system info 
+bindsym Mod4+Shift+x exec i3-sensible-terminal -e htop
+
+# Start Mail
+bindsym Mod4+F2 exec i3-sensible-terminal -e mutt
+
+# start dmenu (a program launcher)
+bindsym Mod4+d exec --no-startup-id dmenu_run
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym Mod4+d exec --no-startup-id i3-dmenu-desktop
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+
+
+#########################################################################
+# Exit Programs								#
+#########################################################################
+
+
+bar {
+	# Bar id
+	id bar-defualt
+	# Always show the bar
+	mode dock 
+	# Place the bar on the top of screen
+	position top
+	# Use i3status
+        status_command i3status
+	
+
+	colors {
+		background #000000
+		focused_workspace #000000 #066906 #fffffff
+                active_workspace #000000 #021AB5 #ffffff
+		urgent_workspace #000000 #B22222 #ffffff
+	}
+	
+}
