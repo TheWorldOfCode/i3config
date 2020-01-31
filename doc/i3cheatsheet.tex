@@ -1,0 +1,68 @@
+\documentclass{article}
+
+
+\title{i3 Cheat sheet}
+
+\begin{document}
+\maketitle
+The super key is the key with the Windows flag. 
+
+\section*{Basic Movement}
+\begin{itemize}
+	\item \verb|Mod+h/j/k/l| -- Move to different windows (Vim style)
+	\item \verb|Mod+H/J/K/L| -- Move the focus window around (Vim style)
+        \item \verb|Mod+{number}| -- Change workspace to number
+	\item \verb|Mod+Shift+{number}| -- Move the focused window to workspace \{number\}
+	\item \verb|Mod+space| -- Change focus between tiling and floating windows
+	\item \verb|Mod+a| -- Focused the parent container 
+	\item \verb|Mod+A| -- Focused the child container
+	\item \verb|Mod+Shift+minus| -- Move the focused window to scratchpad 
+	\item \verb|Mod+minus| -- Show scratchpad and cycles through the window in it.
+	\item \verb|Mod+f| -- Show the focused window in fullscreen mod
+	\item \verb|Mod+r| -- Enter resize mode, resize with \verb|h/j/k/l|, use \verb|Return| or \verb|Escape|a return to normal mode
+\end{itemize}
+
+\section*{Layout}
+
+\begin{itemize}
+	\item \verb|Mod+b| -- Split horizontal 
+	\item \verb|Mod+v| -- Split vertical 
+	\item \verb|Mod+s| -- Change container layout to stacking
+	\item \verb|Mod+w| -- Change container layout to tabbed
+	\item \verb|Mod+e| -- Toggle split on container (Vertical/Horizontal)
+	\item \verb|Mod+Shift+space| -- Toggle tiling and floating
+\end{itemize}
+
+\section*{Programs}
+\begin{itemize}
+	\item \verb|Mod+Return| -- Start terminal (i3-sensible-terminal)
+	\item \verb|Mod+W| -- Start qutebrowser
+	\item \verb|Mod+x| -- Start vifm (file browser)
+	\item \verb|Mod+X| -- Start htop (System info)
+	\item \verb|Mod+f2| -- Start mutt (Mail)
+	\item \verb|Mod+d| -- Start dmenu (program launcher)
+\end{itemize}
+
+\section*{System}
+\begin{itemize}
+	\item \verb|Mod+f1| -- Open this document (the Cheat sheet)
+	\item \verb|Mod+Shift+c| -- Reload the configuration file
+	\item \verb|Mod+Shift+r| -- Restart i3 in place (??)
+	\item \verb|Mod+Shift+e| -- Log out
+	\item \verb|Mod+Shift+q| -- Kill the focused window
+	\item \verb|Mod+Ctrl+l| -- Lock the screen
+\end{itemize}
+
+The function keys that works are 
+\begin{itemize}
+	\item \verb|XF86AudioRaiseVolume| -- Increase Master volume by 5 \% and unmute
+	\item \verb|XF86AudioLowerVolume| -- Decrease Master volume by 5 \% and unmute
+	\item \verb|XF86AudioMute| -- Toggle the Master volume
+	\item \verb|XF86AudioPlay| -- Start or pause the media player 
+	\item \verb|XF86AudioNext| -- Next track  
+	\item \verb|XF86AudioPrev| -- Previous track  
+\end{itemize}
+
+
+\end{document}
+
