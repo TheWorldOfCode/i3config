@@ -1,5 +1,6 @@
 \documentclass{article}
 
+\usepackage{listings}
 
 \title{i3 Cheat sheet}
 
@@ -35,8 +36,8 @@ The super key is the key with the Windows flag.
 
 \section*{Programs}
 \begin{itemize}
-	\item \verb|Mod+Return| -- Start terminal (i3-sensible-terminal)
-	\item \verb|Mod+W| -- Start qutebrowser
+	\item \verb|Mod+Return| -- Start x-terminal-emulator (Read section \ref{sec:alternatives})
+	\item \verb|Mod+W| -- Start x-www-browser (Read section \ref{sec:alternatives}))
 	\item \verb|Mod+x| -- Start vifm (file browser)
 	\item \verb|Mod+X| -- Start htop (System info)
 	\item \verb|Mod+f2| -- Start mutt (Mail)
@@ -63,6 +64,34 @@ The function keys that works are
 	\item \verb|XF86AudioPrev| -- Previous track  
 \end{itemize}
 
+\section{Program alternatives}
+\label{sec:alternatives}
+Many of the shortcuts uses the Debian alternatives system, which allow to easy define default program to different action, such as browser and terminal.
+
+\begin{lstlisting}[languagae=bash] 
+  update-alternatives --list [link_group] ] 
+\end{lstlisting}
+
+To change program used following command
+\begin{listlisting}[languagae=bash]
+   sudo update-alternatives --config [link_grop] 
+\end{listlisting}
+
+This command will show a list for alternatives where each has a selection number, enter the selection number of the want program to be used. \\
+
+To create or add programs to a link group run the following command
+
+\begin{listlisting}[languagae=bash]
+   sudo update-alternatives --install [link_path]  [link_group] [program_path] [priority]  
+\end{listlisting}
+where \verb|[link_path]| is the location where the link should be placed, \verb|link_group| the name of the link group the program should be added to, \verb|[program_path]| the path to the program, \verb|[priority]| the priority in the group. 
+
+Used alternatives, group that are marked is manual created.
+\begin{itemize}
+	\item \verb|x-www-browser|: Change the default web browser
+	\item \verb|x-terminal-emulator|: Change the default terminal emulator
+	\item \verb|x-pdfviewer|: The default pdf viewer (created)
+\end{itemize}
 
 \end{document}
 

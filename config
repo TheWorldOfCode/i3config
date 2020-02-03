@@ -157,7 +157,7 @@ bindsym Mod4+Shift+space floating toggle
 # Entering System          						#
 #########################################################################
 # Show cheatsheet
-bindsym Mod4+F1 exec zathura ~/.i3/i3cheatsheet.pdf
+bindsym Mod4+F1 exec x-pdfviewer ~/.i3/i3cheatsheet.pdf
 
 # reload the configuration file
 bindsym Mod4+Shift+c reload
@@ -189,19 +189,19 @@ bindsym Mod4+Ctrl+l exec i3lock-fancy -p
 #########################################################################
 
 # Start a terminal
-bindsym Mod4+Return exec i3-sensible-terminal
+bindsym Mod4+Return exec x-terminal-emulator
 
 # Start a browser
-bindsym Mod4+Shift+w exec qutebrowser
+bindsym Mod4+Shift+w exec x-www-browser
 
 # Start file browser 
-bindsym Mod4+x exec i3-sensible-terminal -e vifm
+bindsym Mod4+x exec x-terminal-emulator -e vifm
 
 # Start system info 
-bindsym Mod4+Shift+x exec i3-sensible-terminal -e htop
+bindsym Mod4+Shift+x exec x-terminal-emulator -e htop
 
 # Start Mail
-bindsym Mod4+F2 exec i3-sensible-terminal -e mutt
+bindsym Mod4+F2 exec x-terminal-emulator -e mutt
 
 # start dmenu (a program launcher)
 bindsym Mod4+d exec --no-startup-id dmenu_run
