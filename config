@@ -34,7 +34,37 @@ set $right l
 # use Mouse+Mod4 to drag floating windows to their wanted position
 floating_modifier Mod4
 
+#########################################################################
+# Gaps handlering          						#
+#########################################################################
 
+set $inner_gaps 15
+set $outer_gaps 15
+
+gaps inner $inner_gaps  
+gaps outer $outer_gaps  
+
+for_window [class="^.*"] border pixel 2
+
+bindsym Mod4+z gaps outer current plus 5
+bindsym Mod4+Shift+z gaps outer current minus 5
+
+bindsym Mod4+s			gaps inner current plus 5
+bindsym Mod4+Shift+s		gaps inner current minus 5
+
+bindsym Mod4+Shift+t		gaps inner current set $inner_gaps; gaps outer current set $outer_gaps
+
+# #---Dropdown Windows---# #
+# General dropdown window traits. The order can matter.
+for_window [instance="dropdown_*"] floating enable
+for_window [instance="dropdown_*"] move scratchpad
+for_window [instance="dropdown_*"] sticky enable
+for_window [instance="dropdown_*"] scratchpad show
+for_window [instance="dropdown_tmuxdd"] resize set 625 450
+for_window [instance="dropdown_dropdowncalc"] resize set 800 300
+for_window [instance="dropdown_tmuxdd"] border pixel 3
+for_window [instance="dropdown_dropdowncalc"] border pixel 2
+for_window [instance="dropdown_*"] move position center
 #########################################################################
 # Entering Basic Movement  						#
 #########################################################################
@@ -145,9 +175,9 @@ bindsym Mod4+b split h
 bindsym Mod4+v split v
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym Mod4+s layout stacking
-bindsym Mod4+w layout tabbed
-bindsym Mod4+e layout toggle split
+#bindsym Mod4+s layout stacking
+#bindsym Mod4+w layout tabbed
+#bindsym Mod4+e layout toggle split
 
 # toggle tiling / floating
 bindsym Mod4+Shift+space floating toggle
